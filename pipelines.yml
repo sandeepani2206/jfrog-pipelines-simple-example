@@ -20,4 +20,4 @@ pipelines:
             - name: my_source_repo
         execution:
           onExecute:
-            - printenv                  # A benign operation for the demo
+            - printenv                  # A benign operation for the demo ok 
