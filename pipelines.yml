@@ -9,7 +9,6 @@ resources:
       buildOn:
         commit:                true
         pullRequestCreate:     true
-        releaseRequestCreate:  true
  
 pipelines:     
     - name: pipeline_gitrepo_trigger
