@@ -1,0 +1,24 @@
+resources:
+  - name: my_source_repo
+    type: GitRepo
+    configuration:
+      gitProvider: myGitHub
+      path: amithkm/jfrog-pipelines-simple-example
+      branches:
+        include: master
+      buildOn:
+        commit:                true
+        pullRequestCreate:     true
+        releaseRequestCreate : true
+ 
+pipelines:     
+    - name: pipeline_gitrepo_trigger
+      steps:
+      - name: gitrepo_trigger_step_1
+        type: Bash
+        configuration:
+          inputResources:
+            - name: my_source_repo
+        execution:
+          onExecute:
+            - printenv                  # A benign operation for the demo
