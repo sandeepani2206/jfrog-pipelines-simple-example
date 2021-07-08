@@ -3,5 +3,5 @@ gitRepositoryPath: amithkm/jfrog-pipelines-simple-example  # replace jfrog with 
 artifactoryIntegration: amithmutak
 imageName: app_docker_image
 artifactoryUrl: amithmutak.jfrog.io   # replace with your server name
-sourceRepository: docker-local  # create local docker repository in Artifactory
+sourceRepository: docker  # create local docker repository in Artifactory
 # prodRepository: su204-docker-prod-local # create local docker repository in Artifactory
