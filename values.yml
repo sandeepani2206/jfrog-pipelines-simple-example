@@ -1,5 +1,5 @@
 gitIntegration: xrayscan
-gitRepositoryPath: jfrog/jfrog-pipelines-steps-examples/XrayScan/  # replace jfrog with your username or org name
+gitRepositoryPath: jfrog/jfrog-pipelines-simple-example  # replace jfrog with your username or org name
 artifactoryIntegration: amithmutak
 imageName: app_docker_image
 artifactoryUrl: amithmutak   # replace with your server name
