@@ -1,4 +1,7 @@
-myRepo:
-  gitProvider: my_github
-  path: amithkm/jfrog-pipelines-simple-example
-
+gitIntegration: xrayscan
+gitRepositoryPath: jfrog/jfrog-pipelines-steps-examples/XrayScan/  # replace jfrog with your username or org name
+artifactoryIntegration: amithmutak
+imageName: app_docker_image
+artifactoryUrl: amithmutak   # replace with your server name
+sourceRepository: docker-local  # create local docker repository in Artifactory
+# prodRepository: su204-docker-prod-local # create local docker repository in Artifactory
