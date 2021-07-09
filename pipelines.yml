@@ -24,7 +24,7 @@ pipelines:
           inputResources:
             - name: mvn_repo
           integrations:
-            - name: {{ .Values.artifactory }}
+            - name: {{ .Values.artifactory }} //comment
 
       - name: publish_build.   
         type: PublishBuildInfo
