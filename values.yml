@@ -1,7 +1,6 @@
 gitIntegration: Pipelinescantest
 gitRepositoryPath: sandeepani2206/jfrog-pipelines-simple-example  # replace jfrog with your username or org name
 artifactoryIntegration: amithmutak
-imageName: app_docker_image
 artifactoryUrl: amithmutak.jfrog.io   # replace with your server name
-sourceRepository: docker  # create local docker repository in Artifactory
-# prodRepository: su204-docker-prod-local # create local docker repository in Artifactory
+repoPath: jfrog/jfrog-pipelines-maven-sample     # replace jfrog with your username or org name
+deployerRepo: san-libs-snapshot-local
