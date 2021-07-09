@@ -2,5 +2,5 @@ gitIntegration: Pipelinescantest
 gitRepositoryPath: sandeepani2206/jfrog-pipelines-simple-example  # replace jfrog with your username or org name
 artifactoryIntegration: amithmutak
 artifactoryUrl: amithmutak.jfrog.io   # replace with your server name
-repoPath: jfrog/jfrog-pipelines-maven-sample     # replace jfrog with your username or org name
+repoPath: sandeepani2206/jfrog-pipelines-simple-example     # replace jfrog with your username or org name
 deployerRepo: san-libs-snapshot-local
