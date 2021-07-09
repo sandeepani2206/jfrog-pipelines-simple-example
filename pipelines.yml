@@ -2,56 +2,35 @@ template: true   # required for local templates
 valuesFilePath: ./values.yml
 
 resources:
-  - name: app_repo
+  - name: mvn_repo
     type: GitRepo
     configuration:
-      gitProvider: {{ .Values.gitIntegration }}                      
-      path: {{ .Values.gitRepositoryPath }}    
-      branches:
-        include: master
+      path: {{ .Values.repoPath }}
+      gitProvider: {{ .Values.gitProvider }}
 
-  - name: app_buildinfo
+  - name: mvn_build_info
     type: BuildInfo
     configuration:
-      sourceArtifactory: {{ .Values.artifactoryIntegration }}
+      sourceArtifactory: {{ .Values.artifactory }}
 
 pipelines:
-  - name: app_dev_pipeline
+  - name: demo_maven
     steps:
-      - name: app_build
-        type: DockerBuild
+      - name: mvn_build_step
+        type: MvnBuild
         configuration:
-          affinityGroup: docker_group
-          dockerFileLocation: .
-          dockerFileName: Dockerfile
-          dockerImageName: {{ .Values.artifactoryUrl }}/{{ .Values.sourceRepository }}/{{ .Values.imageName }}  
-          dockerImageTag: ${run_number}
+          deployerSnapshotRepo: {{ .Values.deployerRepo }}
+          deployerReleaseRepo: {{ .Values.deployerRepo }}
           inputResources:
-            - name: app_repo
+            - name: mvn_repo
           integrations:
-            - name: {{ .Values.artifactoryIntegration }}         
-            
-      - name: app_push
-        type: DockerPush
-        configuration:
-          affinityGroup: docker_group
-          targetRepository: {{ .Values.sourceRepository }}
-          integrations:
-            - name: {{ .Values.artifactoryIntegration }}                            
-          inputSteps:
-            - name: app_build
+            - name: {{ .Values.artifactory }}
 
-      - name: publish_app_build
+      - name: publish_build
         type: PublishBuildInfo
         configuration:
-          affinityGroup: docker_group
+          forceXrayScan: false
           inputSteps:
-            - name: app_push
+            - name: mvn_build_step
           outputResources:
-            - name: app_buildinfo
-            
-      - name: xrayScanStep
-        type: XrayScan
-        configuration:
-          inputResources:
-            - name: app_buildinfo 
+            - name: mvn_build_info
