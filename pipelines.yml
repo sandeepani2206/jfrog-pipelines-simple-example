@@ -26,7 +26,7 @@ pipelines:
           integrations:
             - name: {{ .Values.artifactory }}
 
-      - name: publish_build.   //comment
+      - name: publish_build.   
         type: PublishBuildInfo
         configuration:
           forceXrayScan: false
