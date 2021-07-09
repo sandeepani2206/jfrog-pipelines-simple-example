@@ -1,4 +1,4 @@
-gitIntegration: Pipelinescantest
+gitProvider: Pipelinescantest
 gitRepositoryPath: sandeepani2206/jfrog-pipelines-simple-example  # replace jfrog with your username or org name
 artifactoryIntegration: amithmutak
 artifactoryUrl: amithmutak.jfrog.io   # replace with your server name
